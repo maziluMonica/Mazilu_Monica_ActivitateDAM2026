@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">laborator3</string>
+    <string name="app_name">Laborator3</string>
+    <string name="introduceti_tipul_marmurii">Introduceti tipul marmurii</string>
+    <string name="introduceti_pretul_marmurii">Introduceti_pretul_marmurii</string>
+    <string name="introducere_date">Introducere date</string>
+
+    <string-array name="culori_marmura">
+        <item>Alb</item>
+        <item>Negru</item>
+        <item>Gri</item>
+        <item>Bej</item>
+    </string-array>
 </resources>
