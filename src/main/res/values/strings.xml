@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Mazilu_Monica_ActivitateDAM2026</string>
+    <string name="introduceti_tipul_marmurii">Introduceti tipul marmurii</string>
+    <string name="introduceti_pretul_marmurii">Introduceti_pretul_marmurii</string>
+    <string name="introducere_date">Introducere date</string>
+
+    <string-array name="culori_marmura">
+        <item>Alb</item>
+        <item>Negru</item>
+        <item>Gri</item>
+        <item>Bej</item>
+    </string-array>
 </resources>

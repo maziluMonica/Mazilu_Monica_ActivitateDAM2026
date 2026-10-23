@@ -2,7 +2,7 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="seminar3">
+      <SelectionState runConfigName="laborator2">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
@@ -10,7 +10,7 @@
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="laborator2">
+      <SelectionState runConfigName="laborator3">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
