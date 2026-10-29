@@ -3,6 +3,14 @@
     <string name="introduceti_tipul_marmurii">Introduceti tipul marmurii</string>
     <string name="introduceti_pretul_marmurii">Introduceti_pretul_marmurii</string>
     <string name="introducere_date">Introducere date</string>
+    <string name="pret_marmura">Pret marmura</string>
+    <string name="tip_marmura">Tip marmura</string>
+    <string name="finisaj">Finisaj</string>
+    <string name="lucios">Lucios</string>
+    <string name="mat">Mat</string>
+    <string name="in_stoc">In stoc</string>
+    <string name="adauga_marmura">Adauga marmura</string>
+    <string name="afisare_lista_marmura">Afisare lista marmura</string>
 
     <string-array name="culori_marmura">
         <item>Alb</item>

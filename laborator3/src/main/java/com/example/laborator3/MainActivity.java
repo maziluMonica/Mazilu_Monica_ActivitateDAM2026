@@ -12,8 +12,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
+    public ArrayList listaMarmura=new ArrayList<Marmura>();
+    public Marmura marmura;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,5 +61,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    public void deschidereAfisareObiecte(View view) {
+        Bundle bundle = new Bundle();
+
+        String lista=listaMarmura.toString();
+        bundle.putStringArrayList("Lista", listaMarmura);
+
+
+        Intent it=new Intent(this, AfisareObiecte.class);
+        startActivity(it,bundle);
+
+
     }
 }

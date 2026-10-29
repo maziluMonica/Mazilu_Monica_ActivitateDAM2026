@@ -11,36 +11,37 @@
     <Spinner
         android:id="@+id/spinnerCuloare"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="39dp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tip marmura" />
+        android:layout_height="71dp"
+        android:text="@string/tip_marmura" />
 
     <EditText
         android:id="@+id/tipMarmura_ET"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:hint="@string/introduceti_tipul_marmurii"
         android:inputType="text" />
 
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pret marmura" />
+        android:layout_height="66dp"
+        android:text="@string/pret_marmura" />
 
     <EditText
         android:id="@+id/pretMarmura_ET"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="116dp"
         android:hint="@string/introduceti_pretul_marmurii"
         android:inputType="numberDecimal" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Finisaj" />
+        android:text="@string/finisaj" />
 
     <RadioGroup
         android:id="@+id/finisaj_RG"
@@ -51,26 +52,26 @@
             android:id="@+id/radioLucios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lucios" />
+            android:text="@string/lucios" />
 
         <RadioButton
             android:id="@+id/radioMat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mat" />
+            android:text="@string/mat" />
     </RadioGroup>
 
     <CheckBox
         android:id="@+id/inStoc_CB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="In stoc" />
+        android:text="@string/in_stoc" />
 
     <Button
         android:id="@+id/buttonAdauga"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="adaugaMarmura"
-        android:text="Adauga marmura" />
+        android:text="@string/adauga_marmura" />
 
 </LinearLayout>

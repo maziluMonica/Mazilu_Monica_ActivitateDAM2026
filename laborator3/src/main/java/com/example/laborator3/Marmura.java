@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Marmura implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private String culoare;
     private String tipMarmura;
     private double pretPeMetruPatrat;
@@ -59,5 +61,10 @@ public class Marmura implements Serializable {
 
     public void setEsteInStoc(boolean esteInStoc) {
         this.esteInStoc = esteInStoc;
+    }
+
+    @Override
+    public String toString() {
+        return "Culoare: " + culoare + ", Tip: " + tipMarmura + ", Pret: " + pretPeMetruPatrat + " LEI, Finisaj: " + finisaj + ", In stoc: " + (esteInStoc ? "Da" : "Nu");
     }
 }
