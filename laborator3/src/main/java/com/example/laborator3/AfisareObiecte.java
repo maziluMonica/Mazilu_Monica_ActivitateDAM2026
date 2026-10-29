@@ -60,7 +60,7 @@ public class AfisareObiecte extends AppCompatActivity {
             }
         });
 
-// 4. La apăsarea lungă, obiectul este șters din listă.
+
         lv.setOnItemLongClickListener(
                 new ListView.OnItemLongClickListener() {
                     @Override
