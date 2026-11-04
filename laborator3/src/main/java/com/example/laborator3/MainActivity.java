@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList listaMarmura=new ArrayList<Marmura>();
+    public ArrayList<Marmura> listaMarmura=new ArrayList<Marmura>();
     public Marmura marmura;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     boolean esteInStoc = bundle.getBoolean("esteInStoc");
 
                     Marmura marmura = new Marmura(culoare, tipMarmura, pret, finisaj, esteInStoc);
+                    listaMarmura.add(marmura);
                     StringBuilder builder = new StringBuilder();
                     builder.append("Culoare: ").append(marmura.getCuloare());
                     builder.append("\nTip marmura: ").append(marmura.getTipMarmura());
@@ -62,16 +63,21 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    public void deschidereAfisareObiecte(View view) {
-        Bundle bundle = new Bundle();
+     public void deschidereAfisareObiecte(View view) {
+        ArrayList<String> lista = new ArrayList<>();
 
-        String lista=listaMarmura.toString();
-        bundle.putStringArrayList("Lista", listaMarmura);
+        for (Marmura marmura : listaMarmura) {
+            String text = "Culoare: " + marmura.getCuloare()
+                    + "\nTip marmura: " + marmura.getTipMarmura()
+                    + "\nPret: " + marmura.getPretPeMetruPatrat()
+                    + "\nFinisaj: " + marmura.getFinisaj()
+                    + "\nEste in stoc: " + marmura.isEsteInStoc();
 
+            lista.add(text);
+        }
 
-        Intent it=new Intent(this, AfisareObiecte.class);
-        startActivity(it,bundle);
-
-
+        Intent it = new Intent(this, AfisareObiecte.class);
+        it.putStringArrayListExtra("Lista", lista);
+        startActivity(it);
     }
-}
+    }

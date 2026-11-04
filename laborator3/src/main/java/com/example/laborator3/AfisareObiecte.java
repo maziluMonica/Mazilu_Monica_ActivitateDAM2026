@@ -27,19 +27,25 @@ public class AfisareObiecte extends AppCompatActivity {
             return insets;
         });
 
-        Intent it=getIntent();
-        Bundle bundle=it.getExtras();
-        ArrayList<String> lista = bundle.getStringArrayList("Lista");
+
+        Intent it = getIntent();
+
+        ArrayList<String> lista =
+                it.getStringArrayListExtra("Lista");
+
         if (lista == null) {
             lista = new ArrayList<>();
         }
 
-        ArrayAdapter adapter = new ArrayAdapter<>(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 lista
         );
-        ListView lv=findViewById(R.id.Afisare_LV);
+
+        ListView lv = findViewById(R.id.Afisare_LV);
+        lv.setAdapter(adapter);
+
         lv.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(
@@ -48,12 +54,12 @@ public class AfisareObiecte extends AppCompatActivity {
                     int position,
                     long id) {
 
-                Marmura marmuraSelectata = (Marmura)adapter.getItem(position);
+                String marmuraSelectata = (String)adapter.getItem(position);
 
                 if (marmuraSelectata != null) {
                     Toast.makeText(
                             AfisareObiecte.this,
-                            marmuraSelectata.toString(),
+                            marmuraSelectata,
                             Toast.LENGTH_SHORT
                     ).show();
                 }
@@ -70,7 +76,7 @@ public class AfisareObiecte extends AppCompatActivity {
                             int position,
                             long id) {
 
-                        Marmura marmuraStearsa =(Marmura) adapter.getItem(position);
+                        String marmuraStearsa =(String) adapter.getItem(position);
 
                         if (marmuraStearsa != null) {
                             adapter.remove(marmuraStearsa);
