@@ -11,6 +11,7 @@
     <string name="in_stoc">In stoc</string>
     <string name="adauga_marmura">Adauga marmura</string>
     <string name="afisare_lista_marmura">Afisare lista marmura</string>
+    <string name="modifica_marmura">Modifica marmura</string>
 
     <string-array name="culori_marmura">
         <item>Alb</item>

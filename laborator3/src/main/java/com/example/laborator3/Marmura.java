@@ -1,8 +1,11 @@
 package com.example.laborator3;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
-public class Marmura implements Serializable {
+public class Marmura implements Parcelable {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,6 +25,40 @@ public class Marmura implements Serializable {
         this.finisaj = finisaj;
         this.esteInStoc = esteInStoc;
     }
+
+    protected Marmura(Parcel in) {
+        culoare = in.readString();
+        tipMarmura = in.readString();
+        pretPeMetruPatrat = in.readDouble();
+        finisaj = in.readString();
+        esteInStoc = in.readByte() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(culoare);
+        dest.writeString(tipMarmura);
+        dest.writeDouble(pretPeMetruPatrat);
+        dest.writeString(finisaj);
+        dest.writeByte((byte) (esteInStoc ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Marmura> CREATOR = new Creator<Marmura>() {
+        @Override
+        public Marmura createFromParcel(Parcel in) {
+            return new Marmura(in);
+        }
+
+        @Override
+        public Marmura[] newArray(int size) {
+            return new Marmura[size];
+        }
+    };
 
     public String getCuloare() {
         return culoare;

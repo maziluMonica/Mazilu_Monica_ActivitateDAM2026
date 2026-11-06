@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
      public void deschidereAfisareObiecte(View view) {
-        ArrayList<String> lista = new ArrayList<>();
+      /*  ArrayList<String> lista = new ArrayList<>();
 
         for (Marmura marmura : listaMarmura) {
             String text = "Culoare: " + marmura.getCuloare()
@@ -73,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
                     + "\nFinisaj: " + marmura.getFinisaj()
                     + "\nEste in stoc: " + marmura.isEsteInStoc();
 
-            lista.add(text);
-        }
+            lista.add(text);*/
 
         Intent it = new Intent(this, AfisareObiecte.class);
-        it.putStringArrayListExtra("Lista", lista);
+       /* it.putStringArrayListExtra("Lista", lista);*/
+         it.putParcelableArrayListExtra("listaMarmura",listaMarmura);
         startActivity(it);
     }
     }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -26,6 +27,8 @@ public class IntroducereDate extends AppCompatActivity {
     private CheckBox inStoc_CB;
     private Spinner spinnerCuloare;
 
+    private Marmura marmuraSelectata;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,18 +39,39 @@ public class IntroducereDate extends AppCompatActivity {
         pretMarmura_ET = findViewById(R.id.pretMarmura_ET);
         finisaj_RG = findViewById(R.id.finisaj_RG);
         inStoc_CB = findViewById(R.id.inStoc_CB);
-
-
-
         spinnerCuloare = findViewById(R.id.spinnerCuloare);
 
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.culori_marmura,
-                android.R.layout.simple_spinner_item
+                    this,
+                    R.array.culori_marmura,
+                    android.R.layout.simple_spinner_item
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCuloare.setAdapter(adapter);
+
+      marmuraSelectata=(Marmura)getIntent().getParcelableExtra("marmuraSelectata");
+      if(marmuraSelectata!=null) {
+          tipMarmura_ET.setText(marmuraSelectata.getTipMarmura());
+          RadioButton mat = findViewById(R.id.radioMat);
+          RadioButton lucios = findViewById(R.id.radioLucios);
+          if (marmuraSelectata.getFinisaj() == "mat") {
+              mat.setChecked(true);
+              lucios.setChecked(false);
+
+          } else {
+              mat.setChecked(false);
+              lucios.setChecked(true);
+          }
+          pretMarmura_ET.setText("" + marmuraSelectata.getPretPeMetruPatrat());
+          inStoc_CB.setChecked(marmuraSelectata.isEsteInStoc());
+          String culoare = marmuraSelectata.getCuloare();
+          int pozitie = adapter.getPosition(culoare);
+          spinnerCuloare.setSelection(pozitie);
+
+          Button modifica = findViewById(R.id.modificaMarmura);
+          modifica.setEnabled(true);
+      }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -93,5 +117,26 @@ public class IntroducereDate extends AppCompatActivity {
         it.putExtras(bundle);
         setResult(RESULT_OK, it);
         finish();
+    }
+
+    public void modificaMarmura(View view) {
+        String culoare=spinnerCuloare.getSelectedItem().toString();
+        String tip=tipMarmura_ET.getText().toString();
+        Double pret=Double.parseDouble(pretMarmura_ET.getText().toString());
+        int selectat=finisaj_RG.getCheckedRadioButtonId();
+        RadioButton butonSelectat=findViewById(selectat);
+        String finisaj=butonSelectat.getText().toString();
+        Boolean inStoc=inStoc_CB.isChecked();
+
+        Intent rezultat=new Intent();
+        rezultat.putExtra("position", getIntent().getIntExtra("position",-1));
+        rezultat.putExtra("culoare",culoare);
+        rezultat.putExtra("tipMarmura", tip);
+        rezultat.putExtra("pret", pret);
+        rezultat.putExtra("finisaj", finisaj);
+        rezultat.putExtra("esteInStoc", inStoc);
+        setResult(RESULT_OK, rezultat);
+        finish();
+
     }
 }
