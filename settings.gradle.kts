@@ -18,3 +18,4 @@ rootProject.name = "app"
 
 include(":laborator2")
 include(":laborator3")
+include(":laborator8")
