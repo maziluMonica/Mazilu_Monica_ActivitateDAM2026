@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">laborator9</string>
+    <string name="deschide">Deschide</string>
+    <string name="oras">Oras....</string>
+    <string name="cauta">Cauta</string>
+    <string-array name="perioade_vreme">
+        <item>1 zi</item>
+        <item>5 zile</item>
+    </string-array>
+</resources>
